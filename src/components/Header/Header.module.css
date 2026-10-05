@@ -1,0 +1,86 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem var(--gutter);
+  background: var(--white);
+  transition:
+    transform 0.7s var(--ease-out),
+    box-shadow 0.4s ease;
+}
+
+.header[data-hidden] {
+  transform: translateY(-100%);
+}
+
+.header[data-scrolled] {
+  box-shadow: 0 1px 0 var(--rule-soft);
+}
+
+.logo {
+  display: block;
+  height: 4.6rem;
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4.8rem;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  letter-spacing: -0.04em;
+  color: var(--grey);
+  transition: color 0.3s ease;
+}
+
+/* The diamond sits in a slot that opens to 16px + 8px gap for the active / hovered item. */
+.marker {
+  width: 0 !important;
+  margin-right: 0;
+  opacity: 0;
+  transform: scale(0.4) rotate(-90deg);
+  transition:
+    width 0.6s var(--ease-out),
+    margin 0.6s var(--ease-out),
+    opacity 0.4s ease,
+    transform 0.6s var(--ease-out);
+}
+
+.link[data-active] {
+  font-weight: 500;
+}
+
+.link[data-active] .marker,
+.link:hover .marker,
+.link:focus-visible .marker {
+  width: 1.6rem !important;
+  margin-right: 0.8rem;
+  opacity: 1;
+  transform: none;
+}
+
+.link:hover {
+  color: var(--black);
+}
+
+@media (max-width: 1023px) {
+  .nav {
+    display: none;
+  }
+
+  .logo {
+    transform: scale(0.85);
+    transform-origin: left center;
+  }
+}

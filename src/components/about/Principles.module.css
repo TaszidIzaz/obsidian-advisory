@@ -1,0 +1,79 @@
+.section {
+  position: relative;
+  z-index: 1;
+  background: var(--white);
+  padding: 8rem var(--gutter) 8rem;
+}
+
+.grid {
+  list-style: none;
+  margin-top: 12rem;
+}
+
+/* Divider sits in the gutter (x=386 / 709 / 1035 on the homepage stats grid) and grows upward. */
+.col {
+  --divider: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  min-height: 30rem;
+}
+
+.col + .col::before {
+  content: "";
+  position: absolute;
+  left: -1rem;
+  bottom: 0;
+  width: 1px;
+  height: 100%;
+  background: var(--rule);
+  transform: scaleY(var(--divider));
+  transform-origin: bottom;
+}
+
+.index {
+  font-weight: 500;
+  font-size: 4.8rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--black);
+  margin-bottom: auto;
+}
+
+.name {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+}
+
+.col .body {
+  max-width: 28.6rem;
+}
+
+@media (max-width: 1023px) {
+  .section {
+    padding: 6rem var(--gutter);
+  }
+
+  .grid {
+    margin-top: 4.8rem;
+  }
+
+  .col {
+    min-height: 0;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .col + .col::before {
+    display: none;
+  }
+
+  .index {
+    margin-bottom: 2.4rem;
+  }
+}

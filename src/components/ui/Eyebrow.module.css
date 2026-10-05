@@ -1,0 +1,41 @@
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  white-space: nowrap;
+}
+
+.label {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.2rem;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--black);
+}
+
+/* 16 × 16 box holding the exported rounded square, rotated -45° as in Figma. */
+.diamond {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.diamondInner {
+  position: relative;
+  width: 1.1314rem;
+  height: 1.1314rem;
+  transform: rotate(-45deg);
+}
+
+.diamondInner img {
+  position: absolute;
+  left: 2.6%;
+  top: 2.6%;
+  width: 94.73%;
+  height: 94.73%;
+  max-width: none;
+}

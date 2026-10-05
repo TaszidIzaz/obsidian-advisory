@@ -1,0 +1,35 @@
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.title {
+  width: 64.2rem;
+}
+
+.aside {
+  width: 41.3rem;
+  flex: none;
+}
+
+@media (max-width: 1023px) {
+  .head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.4rem;
+  }
+
+  .title,
+  .aside {
+    width: 100%;
+  }
+}

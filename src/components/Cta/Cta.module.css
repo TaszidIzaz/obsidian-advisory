@@ -1,0 +1,95 @@
+/* Figma "Frame 36" (7:318) — 1440 × 540, white */
+.cta {
+  position: relative;
+  height: 54rem;
+  background: var(--white);
+  overflow: hidden;
+}
+
+/* Figma indents the first line of the heading and paragraph with leading spaces. */
+.title {
+  position: absolute;
+  left: 8rem;
+  top: 8rem;
+  width: 48.6rem;
+}
+
+.indent {
+  display: inline-block;
+  width: 11.4rem;
+}
+
+.text {
+  position: absolute;
+  left: 18.8rem;
+  top: 26.4rem;
+  width: 39.1rem;
+  text-indent: 11rem;
+}
+
+/* Non-homepage variant: heading, text and button share one left edge. */
+.flush .text {
+  left: 8rem;
+  text-indent: 0;
+}
+
+.flush .action {
+  left: 8rem;
+}
+
+.action {
+  position: absolute;
+  left: 29.7rem;
+  top: 42rem;
+}
+
+.media {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 71rem;
+  height: 54rem;
+  overflow: hidden;
+}
+
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+@media (max-width: 1023px) {
+  .cta {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    padding-top: 6rem;
+  }
+
+  .title,
+  .text,
+  .action {
+    position: relative;
+    inset: auto;
+    width: auto;
+    margin: 0 var(--gutter);
+  }
+
+  .indent {
+    width: 4rem;
+  }
+
+  .text {
+    text-indent: 0;
+  }
+
+  .media {
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 710 / 540;
+    margin-top: 2.4rem;
+  }
+}

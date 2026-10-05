@@ -1,0 +1,158 @@
+/* Figma "Frame 33" (6:153) — 1440 × 994: 754 white + 240 sky band */
+.stats {
+  position: relative;
+  background: var(--white);
+}
+
+.top {
+  position: relative;
+  height: 75.4rem;
+  overflow: hidden;
+}
+
+.head {
+  position: absolute;
+  left: 7.8rem;
+  top: 9.2rem;
+  width: 86.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.aside {
+  position: absolute;
+  left: 105.5rem;
+  top: 9.2rem;
+  width: 30.5rem;
+}
+
+.divider {
+  position: absolute;
+  bottom: 0;
+  width: 1px;
+  height: 27.8rem;
+  background: var(--rule);
+}
+
+.dividerTall {
+  height: 66.2rem;
+}
+
+.figures {
+  position: absolute;
+  inset: 0;
+}
+
+/* Each column: number at y=476, label bottom-aligned at y=734. */
+.figure {
+  position: absolute;
+  top: 47.6rem;
+  width: 28.6rem;
+  height: 25.8rem;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+}
+
+.value {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 4.8rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--black);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.label {
+  font-weight: 500;
+  font-size: 1.8rem;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: var(--grey);
+}
+
+.band {
+  position: relative;
+  height: 24rem;
+  background: var(--sky);
+  overflow: hidden;
+}
+
+.bandDivider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--white);
+}
+
+.caption {
+  position: absolute;
+  width: 28.6rem;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: var(--black);
+}
+
+@media (max-width: 1023px) {
+  .top {
+    height: auto;
+    padding: 6rem var(--gutter) 4rem;
+  }
+
+  .head,
+  .aside,
+  .figures {
+    position: relative;
+    inset: auto;
+    width: 100%;
+  }
+
+  .aside {
+    margin-top: 2.4rem;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .figures {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.2rem 2rem;
+    margin-top: 4.8rem;
+  }
+
+  .figure {
+    position: relative;
+    inset: auto !important;
+    width: auto;
+    height: auto;
+    gap: 1.2rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .band {
+    height: auto;
+    display: grid;
+    gap: 1.6rem;
+    padding: 3.2rem var(--gutter);
+  }
+
+  .bandDivider {
+    display: none;
+  }
+
+  .caption {
+    position: relative;
+    inset: auto !important;
+    width: auto;
+  }
+}

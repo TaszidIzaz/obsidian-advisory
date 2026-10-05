@@ -1,0 +1,80 @@
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.6rem;
+  border-radius: 2px;
+  overflow: hidden;
+  isolation: isolate;
+  white-space: nowrap;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  letter-spacing: -0.04em;
+  cursor: pointer;
+}
+
+.wide {
+  padding-inline: 2rem;
+}
+
+.navy {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.sky {
+  background: var(--sky);
+  color: var(--black);
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.navy .fill {
+  background: var(--ink);
+}
+
+.sky .fill {
+  background: #9fc1d2;
+}
+
+.roll {
+  position: relative;
+  display: block;
+  height: 2rem;
+  overflow: hidden;
+}
+
+.label {
+  display: block;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.button:hover .fill,
+.button:focus-visible .fill {
+  transform: scaleY(1);
+  transform-origin: top;
+}
+
+.button:hover .label,
+.button:focus-visible .label {
+  transform: translateY(-100%);
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button:disabled {
+  cursor: progress;
+  opacity: 0.6;
+}

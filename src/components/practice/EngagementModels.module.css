@@ -1,0 +1,97 @@
+.band {
+  position: relative;
+  background: var(--sky);
+  padding: 0 var(--gutter);
+  overflow: hidden;
+}
+
+.divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--white);
+}
+
+.inner {
+  position: relative;
+  min-height: 52rem;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 6rem 0;
+}
+
+.title {
+  font-size: 3.2rem;
+}
+
+/* Each model fills its column; on hover the column lifts to white like a raised card. */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 6rem 2rem 4rem;
+  margin: 0 -1rem;
+  transition: background-color 0.6s var(--ease-out);
+}
+
+.card:hover {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.term {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  margin-bottom: auto;
+}
+
+.name {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: var(--black);
+}
+
+.text {
+  font-size: 1.6rem;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  max-width: 28.6rem;
+}
+
+@media (max-width: 1023px) {
+  .divider {
+    display: none;
+  }
+
+  .inner {
+    min-height: 0;
+    padding-bottom: 4rem;
+  }
+
+  .head {
+    padding: 6rem 0 1.6rem;
+  }
+
+  .card {
+    margin: 0;
+    padding: 2.4rem 0 0;
+    border-top: 1px solid var(--white);
+  }
+
+  .term {
+    margin-bottom: 1.2rem;
+  }
+}

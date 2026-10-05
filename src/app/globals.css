@@ -1,0 +1,215 @@
+/*
+ * Sizing: 1rem = 10 design px. At ≥1024px the root scales with the viewport (1440 wide → 10px),
+ * so every value written as N/10 rem lands exactly on the Figma frame at 1440 and keeps its
+ * proportions on other desktop widths. Below 1024px the root is a fixed 10px and sections
+ * switch to a stacked layout.
+ */
+:root {
+  --navy: #1f325a;
+  --ink: #0b1e2d;
+  --sky: #b3cfdd;
+  --mist: #f3f8fa;
+  --rule: #b3cfdd;
+  --rule-soft: #e3edf2;
+  --grey: #666666;
+  --black: #000000;
+  --white: #ffffff;
+
+  --header-h: 8.6rem;
+  --gutter: 8rem;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+html {
+  font-size: 10px;
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: calc(100vw / 144);
+  }
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --header-h: 6.4rem;
+    --gutter: 2rem;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: var(--white);
+  color: var(--black);
+}
+
+body {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--sky);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 3px;
+}
+
+/* ---------- Type ---------- */
+
+/* 48px display: Season Serif Regular, with a Season Sans Medium run (".sans"). */
+.display {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 400;
+  font-size: 4.8rem;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--black);
+}
+
+.display--tight {
+  line-height: 1;
+}
+
+.sans {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-weight: 500;
+}
+
+.serif {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 400;
+}
+
+.body {
+  font-size: 1.6rem;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: var(--grey);
+}
+
+@media (max-width: 1023px) {
+  .display {
+    font-size: 3.4rem;
+  }
+}
+
+/* ---------- Surfaces ---------- */
+
+/* Pale mist with the Figma noise texture (tile cropped from the rendered frame at 1x). */
+.surface-grain {
+  background-color: var(--mist);
+  background-image: url("/images/grain-tile.png");
+  background-size: 480px 220px;
+  background-repeat: repeat;
+}
+
+.rule {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--rule);
+}
+
+.rule--soft {
+  background: var(--rule-soft);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* SplitText line masks must not clip descenders. */
+.display [class*="-mask"],
+.display > div {
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Page scaffolding (shared by the inner pages) ---------- */
+
+/* Header is fixed; every page starts below it. */
+.page {
+  padding-top: var(--header-h);
+}
+
+/* 4 × 305px columns with 20px gutters inside 80px margins — the grid every Figma section uses
+   (column starts at 80 / 405 / 730 / 1055). */
+.container {
+  padding-inline: var(--gutter);
+}
+
+.grid4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 2rem;
+}
+
+/* The 413px text column that starts at x=947 (right edge of the grid). */
+.aside-col {
+  width: 41.3rem;
+  margin-left: auto;
+}
+
+@media (max-width: 1023px) {
+  .grid4 {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 3.2rem;
+  }
+
+  .aside-col {
+    width: 100%;
+    margin-left: 0;
+  }
+}

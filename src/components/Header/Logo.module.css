@@ -1,0 +1,40 @@
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 13rem;
+  height: 4.8rem;
+}
+
+.mark {
+  width: 3.945rem;
+  height: 3.945rem;
+  flex: none;
+  transition: transform 0.9s var(--ease-out);
+}
+
+a:hover .mark {
+  transform: rotate(90deg);
+}
+
+.word {
+  display: flex;
+  flex-direction: column;
+  width: 8.2rem;
+  font-size: 2.2217rem;
+  line-height: 2.7rem;
+  letter-spacing: -0.04em;
+  color: var(--black);
+}
+
+.obsidian {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 400;
+  margin-bottom: -0.7406rem;
+  white-space: nowrap;
+}
+
+.advisory {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-weight: 300;
+}
